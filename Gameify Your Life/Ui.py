@@ -50,8 +50,9 @@ root.configure(background='gray14')
 root.title("To-Do List")
 
 #creating the photo icons that are used in the bottom left of the screen to add / remove / save / items
-photo = PhotoImage (name= 'realrx', file= 'pic.png', height= 20, width= 202)
+minus = PhotoImage (name= 'realrx', file= 'pic.png', height= 20, width= 20)
 plus = PhotoImage (name= 'rel', file= 'plus(50x50).png', height= 20, width= 20)
+save= PhotoImage (name= 'rel', file= 'plus(50x50).png', height= 20, width= 20)
 
 # Create GUI
 frame_tasks = tkinter.Frame(root, width=200, height=540, bg='black')
@@ -66,14 +67,11 @@ entry_task.place(x=0, y= 485)
 button_add_task = tkinter.Button(root, image=plus, command=add_task)
 button_add_task.place(x=0, y= 512)
 
-#button_delete_task = tkinter.Button(root, text="real", command=delete_task, bg='black')
-#button_delete_task.place(x = 10, y = 500)
+button_delete_task = tkinter.Button(root, image=minus, command=delete_task, bg='black')
+button_delete_task.place(x = 40, y = 512)
 
-#button_load_tasks = tkinter.Button(root, text="Load tasks", width=22, command=load_tasks)
-#button_load_tasks.place(x=0, y= 470)
-
-#button_save_tasks = tkinter.Button(root, text="Save tasks", width=22, command=save_tasks)
-#button_save_tasks.place(x=0, y= 500)
+button_save_tasks = tkinter.Button(root, image=save,  width=22, command=save_tasks)
+button_save_tasks.place(x=80, y= 512)
 
 
 
