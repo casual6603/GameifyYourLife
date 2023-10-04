@@ -1,19 +1,29 @@
-#basic to do list for me to build off of. Credits to Codemy.com
-
-
-
 import tkinter
+from tkinter import Scrollbar
 import tkinter.messagebox
 import pickle
+from tkinter import * 
+from tkinter.ttk import *
 
+
+# Main tkinter window
 root = tkinter.Tk()
+root.geometry("960x540")
+root.configure(background='gray14')
 root.title("To-Do List")
+
+list = ["realrx", "realer"]
+
 
 def add_task():
     task = entry_task.get()
     if task != "":
-        listbox_tasks.insert(tkinter.END, task)
+        list.append(END, task)
         entry_task.delete(0, tkinter.END)
+        for task in list:
+            listbox_tasks.insert(tkinter.END, task)
+
+
     else:
         tkinter.messagebox.showwarning(title="Warning!", message="You must enter a task.")
 
@@ -36,33 +46,42 @@ def load_tasks():
 def save_tasks():
     tasks = listbox_tasks.get(0, listbox_tasks.size())
     pickle.dump(tasks, open("tasks.dat", "wb"))
+   
+ 
+ 
+#creating the photo icons that are used in the bottom left of the screen to add / remove / save / items
+minus = PhotoImage (name= 'realrx', file= 'pic.png', height= 20, width= 20)
+plus = PhotoImage (name= 'rel', file= 'plus(50x50).png', height= 20, width= 20)
+save= PhotoImage (name= 'rel', file= 'plus(50x50).png', height= 20, width= 20)
+load= PhotoImage (name= 'rel', file= 'plus(50x50).png', height= 20, width= 20)
 
 # Create GUI
-frame_tasks = tkinter.Frame(root)
-frame_tasks.pack()
+frame_tasks = tkinter.Frame(root, width=200, height=540, bg='black')
+frame_tasks.place(x=0,y=0)
 
-listbox_tasks = tkinter.Listbox(frame_tasks, height=10, width=50)
-listbox_tasks.pack(side=tkinter.LEFT)
+listbox_tasks = tkinter.Listbox(root, height=200, width=22, bg='grey18', )
+listbox_tasks.place(x=0,y=0)
 
-scrollbar_tasks = tkinter.Scrollbar(frame_tasks)
-scrollbar_tasks.pack(side=tkinter.RIGHT, fill=tkinter.Y)
+entry_task = tkinter.Entry(root, width=21)
+entry_task.place(x=0, y= 485)
 
-listbox_tasks.config(yscrollcommand=scrollbar_tasks.set)
-scrollbar_tasks.config(command=listbox_tasks.yview)
+button_add_task = tkinter.Button(root, image=plus, command=(add_task))
+button_add_task.place(x=0, y= 512)
 
-entry_task = tkinter.Entry(root, width=50)
-entry_task.pack()
+button_delete_task = tkinter.Button(root, image=minus, command=delete_task, bg='black')
+button_delete_task.place(x = 40, y = 512)
 
-button_add_task = tkinter.Button(root, text="Add task", width=48, command=add_task)
-button_add_task.pack()
+button_save_tasks = tkinter.Button(root, image=save,  width=22, command=save_tasks)
+button_save_tasks.place(x=80, y= 512)
 
-button_delete_task = tkinter.Button(root, text="Delete task", width=48, command=delete_task)
-button_delete_task.pack()
 
-button_load_tasks = tkinter.Button(root, text="Load tasks", width=48, command=load_tasks)
-button_load_tasks.pack()
+button_save_tasks = tkinter.Button(root, image=load, width=22, command=save_tasks)
+button_save_tasks.place (x=120, y= 512)
 
-button_save_tasks = tkinter.Button(root, text="Save tasks", width=48, command=save_tasks)
-button_save_tasks.pack()
+
+#c = Checkbutton(root)
+#c.place(x= 20, y=20)
+
 
 root.mainloop()
+
