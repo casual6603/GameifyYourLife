@@ -14,7 +14,6 @@ root.title("To-Do List")
 
 list = []
 
-
 def add_task():
     task = entry_task.get()
     if task != "":
@@ -53,6 +52,7 @@ plus = PhotoImage (name= 'rel', file= 'Gameify Your Life/pic.png', height= 20, w
 save= PhotoImage (name= 'rel', file= 'Gameify Your Life/pic.png', height= 20, width= 20)
 load= PhotoImage (name= 'rel', file= 'Gameify Your Life/pic.png', height= 20, width= 20)
 
+
 # Create GUI
 frame_tasks = tkinter.Frame(root, width=200, height=540, bg='black')
 frame_tasks.place(x=0,y=0)
@@ -81,3 +81,4 @@ button_save_tasks.place (x=120, y= 512)
 
 
 root.mainloop()
+
