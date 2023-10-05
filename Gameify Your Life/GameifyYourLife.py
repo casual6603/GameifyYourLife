@@ -12,16 +12,14 @@ root.geometry("960x540")
 root.configure(background='gray14')
 root.title("To-Do List")
 
-list = ["realrx", "realer"]
+list = []
 
 
 def add_task():
     task = entry_task.get()
     if task != "":
-        list.append(END, task)
-        entry_task.delete(0, tkinter.END)
-        for task in list:
-            listbox_tasks.insert(tkinter.END, task)
+        c = Checkbutton(root, text=task)
+        c.place(x= 20, y=20)
 
 
     else:
@@ -50,10 +48,10 @@ def save_tasks():
  
  
 #creating the photo icons that are used in the bottom left of the screen to add / remove / save / items
-minus = PhotoImage (name= 'realrx', file= 'pic.png', height= 20, width= 20)
-plus = PhotoImage (name= 'rel', file= 'plus(50x50).png', height= 20, width= 20)
-save= PhotoImage (name= 'rel', file= 'plus(50x50).png', height= 20, width= 20)
-load= PhotoImage (name= 'rel', file= 'plus(50x50).png', height= 20, width= 20)
+minus = PhotoImage (name= 'real', file= 'Gameify Your Life/plus(50x50).png', height= 20, width= 20)
+plus = PhotoImage (name= 'rel', file= 'Gameify Your Life/pic.png', height= 20, width= 20)
+save= PhotoImage (name= 'rel', file= 'Gameify Your Life/plus(50x50).png', height= 20, width= 20)
+load= PhotoImage (name= 'rel', file= 'Gameify Your Life/plus(50x50).png', height= 20, width= 20)
 
 # Create GUI
 frame_tasks = tkinter.Frame(root, width=200, height=540, bg='black')
@@ -79,9 +77,7 @@ button_save_tasks = tkinter.Button(root, image=load, width=22, command=save_task
 button_save_tasks.place (x=120, y= 512)
 
 
-#c = Checkbutton(root)
-#c.place(x= 20, y=20)
+
 
 
 root.mainloop()
-
