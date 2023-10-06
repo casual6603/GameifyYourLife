@@ -21,17 +21,19 @@ def checkbox(name1, y_location):
     name1 = Checkbutton(root, text = name1)
     name1.place(x= 10, y = y_location)
     
-    
-def add_task():
-    task = entry_task.get()
-    global y_offset
-    global list
-    if task != "":
-        list.append(task)
-        y_offset = y_offset + 20
-        checkbox(list, y_offset)
-    else:
-        tkinter.messagebox.showwarning(title="Warning!", message="You must enter a task.")
+def output_text(event):   
+    def add_task():
+        task = entry_task.get()
+        global y_offset
+        global list
+        if task != "":
+            list.append(task)
+            y_offset = y_offset + 20
+            checkbox(list, y_offset)
+        else:
+            tkinter.messagebox.showwarning(title="Warning!", message="You must enter a task.")
+
+root.bind('<space>', output_text)
 
 def delete_task():
     try:
@@ -71,8 +73,8 @@ listbox_tasks.place(x=0,y=0)
 entry_task = tkinter.Entry(root, width=21)
 entry_task.place(x=0, y= 485)
 
-button_add_task = tkinter.Button(root, image=plus, command=(add_task))
-button_add_task.place(x=0, y= 512)
+#button_add_task = tkinter.Button(root, image=plus, command=(add_task))
+#button_add_task.place(x=0, y= 512)
 
 button_delete_task = tkinter.Button(root, image=minus, command=delete_task, bg='black')
 button_delete_task.place(x = 40, y = 512)
