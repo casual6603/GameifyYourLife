@@ -21,14 +21,15 @@ def checkbox(name1, y_location):
     name1 = Checkbutton(root, text = name1)
     name1.place(x= 10, y = y_location)
     
+    
 def add_task():
     task = entry_task.get()
     global y_offset
+    global list
     if task != "":
+        list.append(task)
         y_offset = y_offset + 20
-        checkbox(task, y_offset)
-
-
+        checkbox(list, y_offset)
     else:
         tkinter.messagebox.showwarning(title="Warning!", message="You must enter a task.")
 
