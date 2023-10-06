@@ -15,14 +15,18 @@ root.title("To-Do List")
 
 list = []
 
-def checkbox(name1):
+y_offset = 0
+
+def checkbox(name1, y_location):
     name1 = Checkbutton(root, text = name1)
-    name1.place(x= 10, y = 10 * randint(0,100))
+    name1.place(x= 10, y = y_location)
     
 def add_task():
     task = entry_task.get()
+    global y_offset
     if task != "":
-        checkbox(task)
+        y_offset = y_offset + 20
+        checkbox(task, y_offset)
 
 
     else:
