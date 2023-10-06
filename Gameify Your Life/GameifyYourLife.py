@@ -13,7 +13,10 @@ root.configure(background='gray14')
 root.title("To-Do List")
 
 list = []
+<<<<<<< HEAD
 
+=======
+>>>>>>> 07c1ab51f9496224359a893c2a89f5a1a717a561
 
 def add_task():
     task = entry_task.get()
@@ -48,10 +51,18 @@ def save_tasks():
  
  
 #creating the photo icons that are used in the bottom left of the screen to add / remove / save / items
+<<<<<<< HEAD
 minus = PhotoImage (name= 'real', file= 'Gameify Your Life/plus(50x50).png', height= 20, width= 20)
 plus = PhotoImage (name= 'rel', file= 'Gameify Your Life/pic.png', height= 20, width= 20)
 save= PhotoImage (name= 'rel', file= 'Gameify Your Life/plus(50x50).png', height= 20, width= 20)
 load= PhotoImage (name= 'rel', file= 'Gameify Your Life/plus(50x50).png', height= 20, width= 20)
+=======
+minus = PhotoImage (name= 'realrx', file= 'Gameify Your Life/pic.png', height= 20, width= 20)
+plus = PhotoImage (name= 'rel', file= 'Gameify Your Life/pic.png', height= 20, width= 20)
+save= PhotoImage (name= 'rel', file= 'Gameify Your Life/pic.png', height= 20, width= 20)
+load= PhotoImage (name= 'rel', file= 'Gameify Your Life/pic.png', height= 20, width= 20)
+
+>>>>>>> 07c1ab51f9496224359a893c2a89f5a1a717a561
 
 # Create GUI
 frame_tasks = tkinter.Frame(root, width=200, height=540, bg='black')
