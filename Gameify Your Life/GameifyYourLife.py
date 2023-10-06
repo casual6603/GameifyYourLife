@@ -8,7 +8,7 @@ from random import randint
 
 
 # Main tkinter window
-root = tkinter.Tk()
+root = Tk()
 root.geometry("960x540")
 root.configure(background='gray14')
 root.title("To-Do List")
@@ -19,7 +19,7 @@ task = StringVar()
 
 y_offset = 0
 
-def checkbox(name1, y_location):
+def checkbox(f, name1, y_location):
     name1 = Checkbutton(root, text = name1)
     name1.place(x= 10, y = y_location)
     
@@ -27,16 +27,23 @@ def checkbox(name1, y_location):
 def add_task():
     global y_offset
     global task
+    real = Frame(root)
     task = entry_task.get()
     if task != "":
         list.append(task)
         y_offset = y_offset + 20
-        checkbox(task, y_offset)
+        checkbox(real, task, y_offset)
+        xy = Button(root, text= 'x', command = real.destroy, width = 1)
+        xy.place(x = 60, y = y_offset)
+        list.append(real)  # add Frame
+        real.pack()
+        
     else:
         tkinter.messagebox.showwarning(title="Warning!", message="You must enter a task.")
 
 
-   
+
+
  
  
 #creating the photo icons that are used in the bottom left of the screen to add / remove / save / items
