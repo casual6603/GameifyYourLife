@@ -13,7 +13,6 @@ root.geometry("960x540")
 root.configure(background='gray14')
 root.title("To-Do List")
 
-list = []
 
 task = StringVar()
 
@@ -24,19 +23,30 @@ def checkbox(f, name1, y_location):
     name1.place(x= 10, y = y_location)
     
     
+tasks = []
+
 def add_task():
     global y_offset
     global task
     real = Frame(root)
     task = entry_task.get()
     if task != "":
-        list.append(task)
+        checkbutton = Checkbutton(root, text=task)
+        checkbutton.place(x=10, y=y_offset)
         y_offset = y_offset + 20
-        checkbox(real, task, y_offset)
-        xy = Button(root, text= 'x', command = real.destroy, width = 1)
-        xy.place(x = 60, y = y_offset)
-        list.append(real)  # add Frame
-        real.pack()
+        tasks.append({"task": task, "checkbutton": checkbutton})
+        xy = Button(root, text='x', command=lambda t=task: remove_task(t), width=1)
+        xy.place(x=60, y=y_offset)
+
+# Function to remove a task and its checkbutton
+def remove_task(task_name):
+    for item in tasks:
+        if item["task"] == task_name:
+            item["checkbutton"].destroy()
+            tasks.remove(item)
+            item["xy"].destroy()
+            break
+            
         
     else:
         tkinter.messagebox.showwarning(title="Warning!", message="You must enter a task.")
