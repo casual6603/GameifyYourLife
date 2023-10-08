@@ -4,10 +4,12 @@ from tkinter.messagebox import showwarning
 
 
 root = Tk()
+root.resizable(False,False)
 root.geometry("960x540")
 root.title("To-Do List")
+
 scrollbar = Scrollbar(root)
-scrollbar.pack(side=RIGHT, fill=Y)
+scrollbar.pack(side=LEFT, fill=Y)
 
 checklist = Text(root, width=20, height= 40,  bg='red')
 checklist.place(x = 0, y= 0)
@@ -26,6 +28,7 @@ def new_checkbutton():
         checklist.insert("end", "\n")
     else :
         showwarning("Warning!", "You must enter a task.")
+        
 input = Button(input_area, text= "realrx", bg= "red",  command= new_checkbutton)
 input.pack(expand= 10)
 
