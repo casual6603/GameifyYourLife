@@ -28,11 +28,12 @@ root.mainloop()
 #tasks = []
 #y_offset = 0
 
-#def add_task():
-#    global y_offset
-#    task = entry_task.get()
+def add_task():
+    global y_offset
+        #ewllsdfjklasdfj adfasdf;lkj sf
+# task = entry_task.get()
 #    if task != "":
-#        task_frame = Frame(checklist)
+ #       task_frame = Frame(checklist)
 #        checkbutton = Checkbutton(task_frame, text=task)
 #        checklist.insert(side=LEFT)
 #        remove_button = Button(task_frame, text='x', command=lambda t=task: remove_task(t))
