@@ -28,8 +28,8 @@ root.mainloop()
 #tasks = []
 #y_offset = 0
 
-def add_task():
-    global y_offset
+#def add_task():
+    #global y_offset
         #ewllsdfjklasdfj adfasdf;lkj sf
 # task = entry_task.get()
 #    if task != "":
