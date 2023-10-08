@@ -3,18 +3,34 @@ from tkinter import *
 from tkinter.messagebox import showwarning
 
 
-root = Tk("900,900")
-
+root = Tk()
+root.geometry("960x540")
+root.title("To-Do List")
 scrollbar = Scrollbar(root)
 scrollbar.pack(side=RIGHT, fill=Y)
 
-checklist = Text(root, width=10, bg='red')
-checklist.pack()
+checklist = Text(root, width=20, height= 40,  bg='red')
+checklist.place(x = 0, y= 0)
 
-for i in range(50):
-    checkbutton = Checkbutton(checklist, text=i, bg= 'red')    
-    checklist.window_create("end", window=checkbutton)
-    checklist.insert("end", "\n")
+
+input_area = Canvas(root, width = 145, height= 100, bg= 'black')
+input_area.place(x = 0, y= 495)
+
+
+
+def new_checkbutton():
+    i = ent.get()
+    if i != "":
+        checkbutton = Checkbutton(checklist, text=i, bg= 'red')    
+        checklist.window_create("end", window=checkbutton)
+        checklist.insert("end", "\n")
+    else :
+        showwarning("Warning!", "You must enter a task.")
+input = Button(input_area, text= "realrx", bg= "red",  command= new_checkbutton)
+input.pack(expand= 10)
+
+ent = Entry(input_area)
+ent.pack()
 
 checklist.config(yscrollcommand=scrollbar.set)
 scrollbar.config(command=checklist.yview)
@@ -23,6 +39,8 @@ scrollbar.config(command=checklist.yview)
 checklist.configure(state="disabled")
 
 root.mainloop()
+
+
 
 
 #tasks = []
