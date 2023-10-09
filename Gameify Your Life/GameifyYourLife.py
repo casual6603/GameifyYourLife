@@ -1,25 +1,108 @@
+from tkinter import *
+from tkcalendar import Calendar
+ 
+# Create Object
+root = Tk()
+ 
+# Set geometry
+root.geometry("400x400")
+ 
+# Add Calendar
+cal = Calendar(root, selectmode = 'day',
+               year = 2020, month = 5,
+               day = 22)
+ 
+cal.pack(pady = 20)
+ 
+def grad_date():
+    date.config(text = "Selected Date is: " + cal.get_date())
+ 
+# Add Button and Label
+Button(root, text = "Get Date",
+       command = grad_date).pack(pady = 20)
+ 
+date = Label(root, text = "")
+date.pack(pady = 20)
+ 
+# Execute Tkinter
+root.mainloop()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"""
 import tkinter
 from tkinter import *
 from tkinter.messagebox import showwarning
-
+import matplotlib as plt
 
 root = Tk()
 root.resizable(False,False)
 root.geometry("960x540")
 root.title("To-Do List")
 
-scrollbar = Scrollbar(root)
-scrollbar.pack(side=LEFT, fill=Y)
 
-checklist = Text(root, width=20, height= 40,  bg='red')
+scrollbar = Scrollbar(root)
+scrollbar.pack(side=RIGHT, fill=Y)
+
+checklist = Text(root, width=40, height= 40,  bg='red')
 checklist.place(x = 0, y= 0)
+checklist.lower()
+
+list_lower = Canvas(root, width= 40, height= 40)
+list_lower.place (x= 0, y= 0)
+
+
 
 
 input_area = Canvas(root, width = 145, height= 100, bg= 'black')
 input_area.place(x = 0, y= 495)
 
 
-
+def new_window():
+    Canvas(list_lower, width= 
+    282 , height= 100, bg= 'black').pack(side=RIGHT)
 def new_checkbutton():
     i = ent.get()
     if i != "":
@@ -32,6 +115,9 @@ def new_checkbutton():
 input = Button(input_area, text= "realrx", bg= "red",  command= new_checkbutton)
 input.pack(expand= 10)
 
+
+Button(root, text= "realrx", bg= "red",  command= new_window).pack(expand= 10)
+
 ent = Entry(input_area)
 ent.pack()
 
@@ -43,7 +129,7 @@ checklist.configure(state="disabled")
 
 root.mainloop()
 
-
+"""
 
 
 #tasks = []
