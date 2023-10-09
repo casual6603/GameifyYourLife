@@ -1,4 +1,35 @@
 from tkinter import *
+from tkinter.messagebox import showwarning
+import matplotlib as plt
+import threading #for timer
+
+
+root = Tk()
+root.geometry("1920x1080")
+root.title("Gameify Your Life")
+
+Top_frame = Canvas(root, width = 1920, height= 50, bg = "orange") 
+Top_frame.pack(side=TOP)#dont forget to find a way to make this have a ppicture as a background, similar to the profile banner on youtube
+
+Name_module = Label(root, text=  "Hello, 'Name'", font=("arial",25),padx=15,pady=15 ) #3find way to make name dynamic
+Name_module.place(x = 0, y = 53)
+
+
+Todays_goals = Canvas(root, width = 500, height = 400, bg = "orange")
+Todays_goals.place(x=0, y= 100)
+
+This_weeks_goals = Canvas(root, width = 500, height = 400, bg = "orange")
+This_weeks_goals.place(x=500, y= 100)
+
+This_months_goals = Canvas(root, width = 500, height = 400, bg = "orange")
+This_months_goals.place(x=1000, y= 100)
+
+Goals_canvas_text = Label(root, text=  "Goals Canvas", font=("arial",25),padx=15,pady=15 ) #3find way to make name dynamic
+Goals_canvas_text.place(x = 550, y= 540)
+
+Goals_canvas = Canvas(root, width = 1500, height = 400, bg = "orange")
+Goals_canvas.place(x=0, y=600)
+
 
 #ay 3rd times the charm right
 
