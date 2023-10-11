@@ -6,10 +6,10 @@ import threading #for timer
 
 root = Tk()
 root.geometry("1920x1080")
-root.title("Gameify Your Life")
+root.title("Realrx")
 
 Top_frame = Canvas(root, width = 1920, height= 50, bg = "orange") 
-Top_frame.pack(side=TOP)#dont forget to find a way to make this have a ppicture as a background, similar to the profile banner on youtube
+Top_frame.pack(side=TOP)#dont forget to find a way to make this have a picture as a background, similar to the profile banner on youtube
 
 Name_module = Label(root, text=  "Hello, 'Name'", font=("arial",25),padx=15,pady=15 ) #3find way to make name dynamic
 Name_module.place(x = 0, y = 53)
@@ -24,14 +24,32 @@ This_weeks_goals.place(x=500, y= 100)
 This_months_goals = Canvas(root, width = 500, height = 400, bg = "orange")
 This_months_goals.place(x=1000, y= 100)
 
-Goals_canvas_text = Label(root, text=  "Goals Canvas", font=("arial",25),padx=15,pady=15 ) #3find way to make name dynamic
-Goals_canvas_text.place(x = 550, y= 540)
+#Goals_canvas_text = Label(root, text=  "Goals Canvas", font=("arial",25),padx=15,pady=15 ) #3find way to make name dynamic
+#Goals_canvas_text.Grid(x = 550, y= 540)
 
 Goals_canvas = Canvas(root, width = 1500, height = 400, bg = "orange")
 Goals_canvas.place(x=0, y=600)
 
+real1 = 0
 
-#ay 3rd times the charm right
+
+def real():
+    global real1
+    if real1 <3:
+        real = Canvas(Goals_canvas, width = 500, height = 100, bg = 'red')
+        real.pack(side = LEFT)
+        real1 = real1 +1
+    
+    
+    
+real = Button(root, text = "click me", command = real)
+real.pack(side = BOTTOM)
+
+
+
+
+
+
 
 """
 import tkinter
