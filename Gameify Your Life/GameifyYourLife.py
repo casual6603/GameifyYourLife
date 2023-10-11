@@ -3,7 +3,7 @@ from tkinter.messagebox import showwarning
 import matplotlib as plt
 import threading #for timer
 
-
+"""
 root = Tk()
 root.geometry("1920x2000")
 root.title("Realrx")
@@ -63,7 +63,6 @@ real.pack(side = BOTTOM)
 
 
 
-"""
 import tkinter
 from tkinter import *
 from tkinter.messagebox import showwarning
