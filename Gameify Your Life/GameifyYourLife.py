@@ -5,8 +5,18 @@ import threading #for timer
 
 
 root = Tk()
-root.geometry("1920x1080")
+root.geometry("1920x2000")
 root.title("Realrx")
+
+Try_scroll= Scrollbar(root, orient = VERTICAL)
+
+Try = Canvas(root,  width= 1920, height= 2000, bg= "Red", yscrollcommand = Try_scroll.set)
+Try.pack()
+
+#Try_scroll = Scrollbar(Try, orient = VERTICAL, command = Try.yview)
+Try_scroll.config(command= Try.yview)
+Try_scroll.lift() 
+Try_scroll.pack()
 
 Top_frame = Canvas(root, width = 1920, height= 50, bg = "orange") 
 Top_frame.pack(side=TOP)#dont forget to find a way to make this have a picture as a background, similar to the profile banner on youtube
@@ -51,6 +61,8 @@ real.pack(side = BOTTOM)
 
 
 
+
+
 """
 import tkinter
 from tkinter import *
@@ -72,7 +84,6 @@ checklist.lower()
 
 list_lower = Canvas(root, width= 40, height= 40)
 list_lower.place (x= 0, y= 0)
-
 
 
 
